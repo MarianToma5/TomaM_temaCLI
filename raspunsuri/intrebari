@@ -1,0 +1,28 @@
+Ce este un viewport?
+În OpenGL, viewport-ul reprezintă secțiunea dreptunghiulară a ferestrei în care va fi redată scena grafică. Aceasta este definită de funcția glViewport(x, y, width, height), unde (x, y) este poziția colțului stânga-jos, iar width și height sunt dimensiunile dreptunghiului.
+
+Ce reprezintă conceptul de frames per second din punctul de vedere al bibliotecii OpenGL?
+FPS (Frames per Second) indică câte cadre sunt randate și afișate pe ecran într-o secundă. În OpenGL, FPS-ul nu este gestionat direct, dar poate fi măsurat în funcție de cât de rapid sistemul poate actualiza și randare scena.
+
+Când este rulată metoda OnUpdateFrame()?
+Metoda OnUpdateFrame() este apelată înainte de fiecare randare de cadru pentru a actualiza starea scenei, efectuând calcule pentru mișcări, animații și alte schimbări dinamice.
+
+Ce este modul imediat de randare?
+Modul imediat de randare este o tehnică veche de trimitere a datelor către GPU, în care fiecare vârf este specificat individual folosind funcții precum glBegin() și glEnd(). Acesta este considerat ineficient și a fost înlocuit în aplicațiile moderne.
+
+Care este ultima versiune de OpenGL care acceptă modul imediat?
+Modul imediat a fost înlocuit în OpenGL 3.0, dar este încă disponibil în Compatibility Profile până la OpenGL 4.x pentru suportul aplicațiilor mai vechi.
+
+Când este rulată metoda OnRenderFrame()?
+Metoda OnRenderFrame() este apelată după actualizarea scenei, pentru a desena și a randare efectivă a cadrelor pe ecran.
+
+De ce este nevoie ca metoda OnResize() să fie executată cel puțin o dată?
+Metoda OnResize() trebuie apelată pentru a ajusta corect viewport-ul și matricea de proiecție în funcție de dimensiunea ferestrei, altfel scenele pot apărea distorsionate.
+
+Ce reprezintă parametrii metodei CreatePerspectiveFieldOfView() și care este domeniul de valori pentru aceștia?
+Metoda CreatePerspectiveFieldOfView() setează proiecția în perspectivă. Parametrii sunt:
+
+fieldOfViewY: unghiul vertical de vizualizare (45°-90°).
+aspectRatio: raportul lățime/înălțime (trebuie să fie pozitiv).
+nearPlaneDistance: distanța până la planul apropiat (>0, ex: 0.1).
+farPlaneDistance: distanța până la planul îndepărtat (mai mare decât near).
